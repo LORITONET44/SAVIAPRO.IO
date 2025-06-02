@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAVIA PRO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e9f5e9;
+      color: #333;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: green;
+      color: white;
+      font-size: 3rem;
+      animation: fadeOut 1s ease 4s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .letter {
+      opacity: 0;
+      display: inline-block;
+      animation: letterAppear 0.5s ease forwards;
+    }
+
+    @keyframes letterAppear {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .content {
+      display: none;
+      padding: 2rem;
+    }
+
+    .search {
+      margin-bottom: 1rem;
+    }
+
+    .search input {
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .buttons button {
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 10px;
+      background-color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button.active,
+    .buttons button:hover {
+      background-color: rgb(255, 255, 0);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .product {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .loop-title {
+      font-size: 2rem;
+      color: green;
+      text-align: center;
+      animation: loopFade 2s infinite;
+    }
+
+    @keyframes loopFade {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro" id="intro"></div>
+  <div class="content" id="mainContent">
+    <div class="loop-title">Bienvenido a SAVIA PRO</div>
+
+    <div class="search">
+      <input type="text" placeholder="Buscar productos...">
+    </div>
+
+    <div class="buttons">
+      <button onclick="window.open('https://wa.me/573112617453', '_blank')">Contactar WhatsApp</button>
+      <button class="category" data-filter="Todos">Todos</button>
+      <button class="category" data-filter="circulacion">Corazón</button>
+      <button class="category" data-filter="Cáncer">Cáncer</button>
+      <button class="category" data-filter="Gastritis">Gastritis</button>
+      <button class="category" data-filter="Pulmones">Pulmones</button>
+      <button class="category" data-filter="Vitaminas">Vitaminas</button>
+      <button class="category" data-filter="corazón">Vitaminas</button>
+    </div>
+
+    <div class="products">
+
+      <div class="product" data-category="circulacion" onclick="window.location.href='celebro.html'">
+        <img src="imagenes productos/artriartritico/principal.jpg" alt="Producto 2">
+        <p>ARTIARTRITICO</p>
+        <p>Categoría:CIRCULACION</p>
+        <p>$30.000</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const intro = document.getElementById('intro');
+    const text = "SAVIA PRO";
+
+    text.split('').forEach((char, index) => {
+      const span = document.createElement('span');
+      span.classList.add('letter');
+      span.style.animationDelay = `${index * 0.3}s`;
+      span.textContent = char;
+      intro.appendChild(span);
+    });
+
+    setTimeout(() => {
+      document.getElementById('mainContent').style.display = 'block';
+    }, 4500);
+
+    const categoryButtons = document.querySelectorAll('.category');
+    const products = document.querySelectorAll('.product');
+
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        products.forEach(product => {
+          if (filter === 'Todos') {
+            product.style.display = 'block';
+          } else {
+            product.style.display = product.getAttribute('data-category') === filter ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

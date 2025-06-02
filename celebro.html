@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle Producto 1 - SAVIA PRO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e9f5e9;
+      color: #333;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
+    }
+
+    .title {
+      color: green;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .img-section {
+      text-align: center;
+    }
+
+    .img-section img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      color: #b58900;
+      margin: 1rem 0;
+    }
+
+    .category {
+      background-color: yellow;
+      color: #333;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .description, .features {
+      margin-top: 1.5rem;
+    }
+
+    .description p, .features ul {
+      line-height: 1.6;
+    }
+
+    .features ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .back-button, .whatsapp-button {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: green;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-button:hover, .whatsapp-button:hover {
+      background-color: darkgreen;
+    }
+
+    .whatsapp-button img {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+  <script>
+    function abrirImagen(url) {
+      const nuevaVentana = window.open();
+      nuevaVentana.document.write('<img src="' + url + '" style="width:100%">');
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="title">ARTIARTRITICO- Suplemento Natural para la circulacion</div>
+
+    <div class="img-section">
+      <img src="imagenes productos/artriartritico/principal.jpg" alt="Producto 1" onclick="abrirImagen(this.src)">
+    </div>
+
+    <div class="gallery">
+      <img src="imagenes productos/artriartritico/unoprincipal.png" alt="Ángulo 1" onclick="abrirImagen(this.src)">
+      <img src="imagenes productos/artriartritico/dos.jpg" alt="Ángulo 2" onclick="abrirImagen(this.src)">
+      <img src="imagenes productos/artriartritico/ultimo.jpg" alt="Ángulo 3" onclick="abrirImagen(this.src)">
+      <img src="imagenes productos/artriartritico/tree.jpg"Ángulo 4" onclick="abrirImagen(this.src)">
+    </div>
+
+    <div class="price">$30.000</div>
+    <div class="category">Categoría: circulacion</div>
+
+    <div class="description">
+      <h3>Descripción</h3>
+      <p>Este suplemento natural está diseñado para apoyar la salud cardiovascular. Elaborado con ingredientes naturales de alta calidad, ayuda a mantener la presión arterial estable y a mejorar la circulación sanguínea.</p>
+    </div>
+
+    <div class="features">
+      <h3>Características</h3>
+      <ul>
+        <li>100% natural</li>
+        <li>Fácil de consumir</li>
+        <li>Mejora la salud del corazón</li>
+        <li>Recomendado por expertos naturistas</li>
+      </ul>
+    </div>
+
+    <div class="buttons">
+      <a href="../index.html" class="back-button">&larr; Volver</a>
+      <a href="https://wa.me/573112617453" target="_blank" class="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        Contactar por WhatsApp
+      </a>
+    </div>
+  </div>
+</body>
+</html>
